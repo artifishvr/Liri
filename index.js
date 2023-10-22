@@ -14,6 +14,7 @@ const client = new Client({
         GatewayIntentBits.GuildMessageReactions,
         GatewayIntentBits.GuildModeration,
     ],
+    allowedMentions: { parse: [] }
 });
 
 const prefix = process.env.PREFIX || "!";
@@ -77,20 +78,20 @@ client.on("messageCreate", async (message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    let memberid = args[0].replace(/[\\<>@#&!]/g, "");
-    let member = message.guild.members.cache.get(memberid);
-
-    if (!member) {
-        await message.guild.members.fetch()
-        member = message.guild.members.cache.get(args);
-    };
-
     if (command === "kiss") {
-
-        if (!memberid) {
+        if (!args) {
             message.channel.send("you gotta kiss someone!!");
             return;
         }
+
+        let memberid = args[0].replace(/[\\<>@#&!]/g, "");
+        let member = message.guild.members.cache.get(memberid);
+
+        if (!member) {
+            await message.guild.members.fetch()
+            member = message.guild.members.cache.get(args);
+        };
+        
         if (memberid == message.author.id) {
             message.channel.send("get someone else to kiss you <:sad:1084023335609978890>");
             return;
@@ -118,22 +119,23 @@ client.on("messageCreate", async (message) => {
         };
     };
 
-    if (message.content.startsWith("!mostkissed")) {
-        return message.channel.send("this command is disabled for now");
-        let membersdb = Members.getAll();
+    if (command === "mostkissed") {
+        let membersdb = await Member.findAll();
 
         membersdb.sort(function (a, b) {
             return b.kissys - a.kissys;
         });
 
-        let mostKissed = membersdb.slice(0, 3);
+        let mostKissed = membersdb.slice(0, 5);
 
-        message.delete();
-
-        message.channel.send(`**Most Kissed:**
-            \n1. <@${mostKissed[0].id}> with **${mostKissed[0].kissys}** kisses
-            \n2. <@${mostKissed[1].id}> with **${mostKissed[1].kissys}** kisses
-            \n3. <@${mostKissed[2].id}> with **${mostKissed[2].kissys}** kisses`, { allowedMentions: { parse: [] } });
+        message.channel.send(
+            `**Most Kissed:**
+            \n1. <@${mostKissed[0].userid}> with **${mostKissed[0].kissys}** kisses
+            \n2. <@${mostKissed[1].userid}> with **${mostKissed[1].kissys}** kisses
+            \n3. <@${mostKissed[2].userid}> with **${mostKissed[2].kissys}** kisses
+            \n4. <@${mostKissed[3].userid}> with **${mostKissed[3].kissys}** kisses
+            \n5. <@${mostKissed[4].userid}> with **${mostKissed[4].kissys}** kisses`,
+            { allowedMentions: { parse: [] } });
     }
 });
 
