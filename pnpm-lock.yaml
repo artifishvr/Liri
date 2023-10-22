@@ -14,9 +14,6 @@ dependencies:
   sequelize:
     specifier: ^6.33.0
     version: 6.33.0(sqlite3@5.1.6)
-  simpl.db:
-    specifier: ^2.12.1
-    version: 2.12.1
   sqlite3:
     specifier: ^5.1.6
     version: 5.1.6
@@ -978,11 +975,6 @@ packages:
 
   /signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
-    dev: false
-
-  /simpl.db@2.12.1:
-    resolution: {integrity: sha512-mGS914Ux91uwsJP1CXyPO8K4Yyv1jNZhZmZRoYINvVV7HFoha0oCJKM/BXiLNQtBQVaYUdijREkt8dAojDPOdA==}
-    engines: {node: '>=14.0.0'}
     dev: false
 
   /smart-buffer@4.2.0:

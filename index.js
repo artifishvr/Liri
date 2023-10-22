@@ -1,8 +1,8 @@
 const { Client, GatewayIntentBits, ActivityType } = require("discord.js");
+const { Sequelize, DataTypes } = require('sequelize');
 const dotenv = require("dotenv");
 const path = require("path");
 const fs = require("fs");
-const { Sequelize, DataTypes } = require('sequelize');
 dotenv.config();
 
 const client = new Client({
@@ -16,7 +16,7 @@ const client = new Client({
     ],
 });
 
-const prefix = "?";
+const prefix = process.env.PREFIX || "!";
 
 function updatePresence() {
     client.user.setPresence({
@@ -55,12 +55,12 @@ const Member = sequelize.define('Member', {
     try {
         await sequelize.authenticate();
 
-        console.log('Connection has been established successfully.');
+        console.log('Connected to database successfully.');
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     };
 
-    await Member.sync({ force: true });
+    await Member.sync();
 })();
 
 // Create the db directory if it doesn't exist
