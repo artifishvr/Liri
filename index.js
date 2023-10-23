@@ -8,7 +8,7 @@ dotenv.config();
 const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: 'db/db.sqlite',
-    logging: false, 
+    logging: false,
 });
 
 const Member = sequelize.define('Member', {
@@ -105,6 +105,9 @@ client.on("messageCreate", async (message) => {
             return message.reply(`chill out! wait ${timeLeft.toFixed(1)} more second(s) before trying to \`${command.name}\` again.`);
         }
     }
+
+    timestamps.set(message.author.id, now);
+    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
     try {
         command.execute(message, args);
