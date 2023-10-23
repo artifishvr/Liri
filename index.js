@@ -20,6 +20,16 @@ const Member = sequelize.define('Member', {
         type: DataTypes.INTEGER,
         defaultValue: 0,
         allowNull: false
+    },
+    hugged: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false
+    },
+    dominated: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false
     }
 }, {
 });
@@ -36,6 +46,18 @@ const Member = sequelize.define('Member', {
     };
 
     await Member.sync();
+
+    // await Member.update({ hugged: 0 }, {
+    //     where: {
+    //         hugged: null
+    //     }
+    // });
+
+    // await Member.update({ dominated: 0 }, {
+    //     where: {
+    //         dominated: null
+    //     }
+    // });
 })();
 
 const client = new Client({
