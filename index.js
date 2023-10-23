@@ -1,42 +1,14 @@
-const { Client, GatewayIntentBits, ActivityType } = require("discord.js");
+const { Client, GatewayIntentBits, ActivityType, Collection } = require("discord.js");
 const { Sequelize, DataTypes } = require('sequelize');
 const dotenv = require("dotenv");
 const path = require("path");
 const fs = require("fs");
 dotenv.config();
 
-const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
-        GatewayIntentBits.GuildMembers,
-        GatewayIntentBits.GuildMessageReactions,
-        GatewayIntentBits.GuildModeration,
-    ],
-    allowedMentions: { parse: [] }
-});
-
-const prefix = process.env.PREFIX || "!";
-
-function updatePresence() {
-    client.user.setPresence({
-        activities: [{ name: `kisses :3`, type: ActivityType.Competing }],
-        status: 'dnd',
-    });
-}
-
-client.on("ready", () => {
-    updatePresence()
-
-    console.log(`Logged in as ${client.user.tag}!`);
-
-    setInterval(updatePresence, 1000 * 60 * 60);
-})
-
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: 'db/db.sqlite'
+    storage: 'db/db.sqlite',
+    logging: false, 
 });
 
 const Member = sequelize.define('Member', {
@@ -53,6 +25,8 @@ const Member = sequelize.define('Member', {
 });
 
 (async () => {
+    if (!fs.existsSync(path.join(__dirname, 'db'))) fs.mkdirSync(path.join(__dirname, 'db'));
+
     try {
         await sequelize.authenticate();
 
@@ -64,10 +38,38 @@ const Member = sequelize.define('Member', {
     await Member.sync();
 })();
 
-// Create the db directory if it doesn't exist
-const dbDir = path.join(__dirname, 'db');
-if (!fs.existsSync(dbDir)) {
-    fs.mkdirSync(dbDir);
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.GuildModeration,
+    ],
+    allowedMentions: { parse: [] }
+});
+
+const prefix = process.env.PREFIX || "!";
+
+client.commands = new Collection();
+const cooldowns = new Collection();
+
+client.on("ready", () => {
+    updatePresence()
+
+    console.log(`Logged in as ${client.user.tag}!`);
+
+    setInterval(updatePresence, 1000 * 60 * 60);
+})
+
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command);
 }
 
 client.on("messageCreate", async (message) => {
@@ -75,68 +77,49 @@ client.on("messageCreate", async (message) => {
     if (!message.content.startsWith(prefix)) return;
     if (message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+    const args = message.content.slice(prefix.length).split(/ +/g);
+    const commandName = args.shift().toLowerCase();
 
-    if (command === "kiss") {
-        if (!args) {
-            message.channel.send("you gotta kiss someone!!");
-            return;
+    const command = client.commands.get(commandName)
+        ?? client.commands.find(cmd => cmd.aliases?.includes(commandName));
+
+    if (!command) return;
+
+    if (command.guildOnly && message.channel.type == 'ChannelType.DM') {
+        return message.reply('You can\'t use that command in DMs');
+    }
+
+    if (!cooldowns.has(command.name)) {
+        cooldowns.set(command.name, new Collection());
+    }
+
+    const now = Date.now();
+    const timestamps = cooldowns.get(command.name);
+    const cooldownAmount = (command.cooldown || 0) * 1000;
+
+    if (timestamps.has(message.author.id)) {
+        const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+        if (now < expirationTime) {
+            const timeLeft = (expirationTime - now) / 1000;
+            return message.reply(`chill out! wait ${timeLeft.toFixed(1)} more second(s) before trying to \`${command.name}\` again.`);
         }
+    }
 
-        let memberid = args[0].replace(/[\\<>@#&!]/g, "");
-        let member = message.guild.members.cache.get(memberid);
-
-        if (!member) {
-            await message.guild.members.fetch()
-            member = message.guild.members.cache.get(args);
-        };
-        
-        if (memberid == message.author.id) {
-            message.channel.send("get someone else to kiss you <:sad:1084023335609978890>");
-            return;
-        }
-
-        let [user, created] = await Member.findOrCreate({ where: { userid: memberid } });
-        if (created) console.log(`New member added to the database: ${user.userid}`);
-
-        const newkisses = user.kissys + 1;
-
-        await Member.update({ kissys: newkisses }, {
-            where: {
-                userid: memberid
-            }
-        });
-
-        message.delete();
-
-        const kissingmember = message.guild.members.cache.get(message.author.id);
-
-        try {
-            message.channel.send(`**${kissingmember.displayName}** kissed **${member.displayName}** ❤️\n**${member.displayName}** has now been kissed **${newkisses}** times :3`);
-        } catch (error) {
-            console.log(error);
-        };
-    };
-
-    if (command === "mostkissed") {
-        let membersdb = await Member.findAll();
-
-        membersdb.sort(function (a, b) {
-            return b.kissys - a.kissys;
-        });
-
-        let mostKissed = membersdb.slice(0, 5);
-
-        message.channel.send(
-            `**Most Kissed:**
-            \n1. <@${mostKissed[0].userid}> with **${mostKissed[0].kissys}** kisses
-            \n2. <@${mostKissed[1].userid}> with **${mostKissed[1].kissys}** kisses
-            \n3. <@${mostKissed[2].userid}> with **${mostKissed[2].kissys}** kisses
-            \n4. <@${mostKissed[3].userid}> with **${mostKissed[3].kissys}** kisses
-            \n5. <@${mostKissed[4].userid}> with **${mostKissed[4].kissys}** kisses`,
-            { allowedMentions: { parse: [] } });
+    try {
+        command.execute(message, args);
+    } catch (error) {
+        console.error(error);
+        message.reply('there was an error trying to execute that command!');
     }
 });
 
+function updatePresence() {
+    client.user.setPresence({
+        activities: [{ name: `kisses :3`, type: ActivityType.Competing }],
+        status: 'dnd',
+    });
+}
+
 client.login(process.env.DISCORD_CLIENT_TOKEN);
+module.exports = { Member, prefix };
