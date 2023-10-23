@@ -16,9 +16,8 @@ module.exports = {
         let memberid = args[0].replace(/[\\<>@#&!]/g, "");
         let member = message.guild.members.cache.get(memberid);
 
-        if (!member) {
-            await message.guild.members.fetch()
-            member = message.guild.members.cache.get(args);
+        if (!member.displayName) {
+            message.reply("couldn't find that user!\nif you're using a user id, try mentioning them instead.");
         };
 
         if (memberid == message.author.id) {
