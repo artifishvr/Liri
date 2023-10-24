@@ -4,6 +4,7 @@ module.exports = {
     args: true,
     usage: '<kisses|hugs|dominations>',
     async execute(message, args) {
+        return message.channel.send(`Temporarily disabled! Will be back when I bother to code it.`);
         const { Member } = require('..');
 
         let membersdb = await Member.findAll();
