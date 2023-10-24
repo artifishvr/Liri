@@ -20,7 +20,17 @@ const Member = sequelize.define('Member', {
         type: DataTypes.INTEGER,
         defaultValue: 0,
         allowNull: false
-    }
+    },
+    hugged: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false
+    },
+    dominated: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false
+    },
 }, {
 });
 
@@ -35,7 +45,7 @@ const Member = sequelize.define('Member', {
         console.error('Unable to connect to the database:', error);
     };
 
-    await Member.sync();
+    await sequelize.sync({ alter: true });
 })();
 
 const client = new Client({
