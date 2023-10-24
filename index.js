@@ -31,6 +31,11 @@ const Member = sequelize.define('Member', {
         defaultValue: 0,
         allowNull: false
     },
+    deaths: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false
+    }
 }, {
 });
 

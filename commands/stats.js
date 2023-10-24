@@ -20,10 +20,8 @@ module.exports = {
         };
 
 
-
         let user = await Member.findOne({ where: { userid: memberid } });
         if (!user) console.log(`Couldn't find that user!`);
-
 
         const Embed = new EmbedBuilder()
             .setColor(0xff7b00)
@@ -33,6 +31,7 @@ module.exports = {
                 { name: 'Kisses', value: `${user.kissys}`, inline: true },
                 { name: 'Hugs', value: `${user.hugged}`, inline: true },
                 { name: 'Dominations', value: `${user.dominated}`, inline: true },
+                { name: 'Deaths', value: `${user.deaths}`, inline: true },
             )
             .setTimestamp()
             .setFooter({ text: 'uwu haiiii', iconURL: message.client.user.avatarURL() });
