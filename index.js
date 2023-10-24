@@ -95,7 +95,7 @@ client.on("messageCreate", async (message) => {
 
     if (!command) return;
 
-    if (command.guildOnly && message.channel.type == 'ChannelType.DM') {
+    if (command.guildOnly && !message.guild) {
         return message.reply('You can\'t use that command in DMs');
     }
 
