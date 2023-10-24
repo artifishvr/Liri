@@ -45,19 +45,19 @@ const Member = sequelize.define('Member', {
         console.error('Unable to connect to the database:', error);
     };
 
-    await Member.sync();
+    await sequelize.sync();
 
-    // await Member.update({ hugged: 0 }, {
-    //     where: {
-    //         hugged: null
-    //     }
-    // });
+    await Member.update({ hugged: 0 }, {
+        where: {
+            hugged: null
+        }
+    });
 
-    // await Member.update({ dominated: 0 }, {
-    //     where: {
-    //         dominated: null
-    //     }
-    // });
+    await Member.update({ dominated: 0 }, {
+        where: {
+            dominated: null
+        }
+    });
 })();
 
 const client = new Client({

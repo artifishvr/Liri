@@ -10,35 +10,34 @@ module.exports = {
 
         let dbsearch
 
-        switch (args) {
+        switch (args[0]) {
             case 'kisses':
-                dbsearch = kissys
+                dbsearch = "kissys"
                 break;
             case 'hugs':
-                dbsearch = hugged
+                dbsearch = "hugged"
                 break;
             case 'dominations':
-                dbsearch = dominated
+                dbsearch = "dominated"
                 break;
             default:
-                message.channel.send('you need to provide a valid argument!\nsee `help leaderboard')
-                break;
+                return message.channel.send('you need to provide a valid argument!\nsee `help leaderboard');
         }
 
-        // TODO incomplete!
         membersdb.sort(function (a, b) {
             return b[dbsearch] - a[dbsearch];
         });
 
         let mostKissed = membersdb.slice(0, 5);
+        console.log(mostKissed)
 
         message.channel.send(
-            `**Most Kissed:**
-            \n1. <@${mostKissed[0].userid}> with **${mostKissed[0].kissys}** kisses
-            \n2. <@${mostKissed[1].userid}> with **${mostKissed[1].kissys}** kisses
-            \n3. <@${mostKissed[2].userid}> with **${mostKissed[2].kissys}** kisses
-            \n4. <@${mostKissed[3].userid}> with **${mostKissed[3].kissys}** kisses
-            \n5. <@${mostKissed[4].userid}> with **${mostKissed[4].kissys}** kisses`,
+            `**Leaderboard - ${args[0]}**
+            \n1. <@${mostKissed[0].userid || "nobody"} > with **${mostKissed[0].kissys || "0"}** ${args[0]}
+            \n2. <@${mostKissed[1].userid || "nobody"}> with **${mostKissed[1].kissys || "0"}** ${args[0]}
+            \n3. <@${mostKissed[2].userid || "nobody"}> with **${mostKissed[2].kissys || "0"}** ${args[0]}
+            \n4. <@${mostKissed[3].userid || "nobody"}> with **${mostKissed[3].kissys || "0"}** ${args[0]}
+            \n5. <@${mostKissed[4].userid || "nobody"}> with **${mostKissed[4].kissys || "0"}** ${args[0]}`,
             { allowedMentions: { parse: [] } });
     },
 };
