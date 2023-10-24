@@ -9,7 +9,7 @@ module.exports = {
 
         let memberid;
 
-        if (!args) {
+        if (args[0]) {
             memberid = args[0].replace(/[\\<>@#&!]/g, "");
         } else {
             memberid = message.author.id;
