@@ -9,11 +9,8 @@ module.exports = {
 
         let memberid;
 
-        if (args[0]) {
-            memberid = args[0].replace(/[\\<>@#&!]/g, "");
-        } else {
-            memberid = message.author.id;
-        }
+        if (args[0]) memberid = args[0].replace(/[\\<>@#&!]/g, "");
+        if (!args[0]) memberid = message.author.id;
 
 
         let member = message.guild.members.cache.get(memberid);
