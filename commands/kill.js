@@ -1,7 +1,7 @@
 module.exports = {
     name: 'kill',
     description: 'MURDER someone',
-    aliases: ['publicly-execute'],
+    aliases: ['publicly-execute', 'murder'],
     args: true,
     usage: '<user>',
     guildOnly: true,

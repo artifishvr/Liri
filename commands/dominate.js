@@ -1,6 +1,7 @@
 module.exports = {
     name: 'dominate',
     description: 'dom someone :flushed:',
+    aliases: ['dom'],
     args: true,
     usage: '<user>',
     guildOnly: true,

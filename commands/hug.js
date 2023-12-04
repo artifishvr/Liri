@@ -41,6 +41,7 @@ module.exports = {
         const huggingmember = message.guild.members.cache.get(message.author.id);
 
         try {
+            message.channel.send(`<:hug:1181142582412189736>`);
             message.channel.send(`**${huggingmember.displayName}** hugged **${member.displayName}** uwu\n**${member.displayName}** has now been hugged **${newhugs}** times :3`);
         } catch (error) {
             console.log(error);
