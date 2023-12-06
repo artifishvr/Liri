@@ -40,6 +40,8 @@ module.exports = {
 
         const kissingmember = message.guild.members.cache.get(message.author.id);
 
+        if (member.displayName.toLowerCase() == "drake") return message.channel.send(`said that you a lesbian, girl me too`);
+
         try {
             message.channel.send(`**${kissingmember.displayName}** kissed **${member.displayName}** ❤️\n**${member.displayName}** has now been kissed **${newkisses}** times :3`);
         } catch (error) {
