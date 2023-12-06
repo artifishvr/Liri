@@ -5,9 +5,17 @@ const path = require("path");
 const fs = require("fs");
 dotenv.config();
 
+const oldFilePath = path.join(__dirname, 'db', 'db.sqlite');
+const newFilePath = path.join(__dirname, 'db', 'uwu.db');
+
+if (fs.existsSync(oldFilePath)) {
+    fs.renameSync(oldFilePath, newFilePath);
+    console.log('Renamed db.sqlite to uwu.db');
+}
+
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: 'db/db.sqlite',
+    storage: 'db/uwu.db',
     logging: false,
 });
 
