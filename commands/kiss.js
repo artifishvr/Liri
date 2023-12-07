@@ -1,3 +1,5 @@
+
+
 module.exports = {
     name: 'kiss',
     description: 'give someone a kiss',
@@ -40,10 +42,16 @@ module.exports = {
 
         const kissingmember = message.guild.members.cache.get(message.author.id);
 
-        if (member.displayName.toLowerCase() == "drake") return message.channel.send(`said that you a lesbian, girl me too`);
+        let quote = ""
+        switch (member.displayName.toLowerCase()) {
+            case "drake":
+                quote = "\"said that you a lesbian, girl me too\""
+                break;
+            default:
+        }
 
         try {
-            message.channel.send(`**${kissingmember.displayName}** kissed **${member.displayName}** ❤️\n**${member.displayName}** has now been kissed **${newkisses}** times :3`);
+            message.channel.send(`**${kissingmember.displayName}** kissed **${member.displayName}** ❤️\n**${member.displayName}** has now been kissed **${newkisses}** times :3\n${quote || ""}`);
         } catch (error) {
             console.log(error);
         };
