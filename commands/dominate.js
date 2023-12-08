@@ -50,7 +50,7 @@ module.exports = {
         }
 
         try {
-            message.channel.send(`**${huggingmember.displayName}** kissed **${member.displayName}** ❤️\n**${member.displayName}** has now been kissed **${newdoms}** times :3\n${quote || ""}`);
+            message.channel.send(`**${huggingmember.displayName}** just dominated **${member.displayName}** :flushed:\n**${member.displayName}** has now been dommed **${newdoms}** times!\n${quote || ""}`);
         } catch (error) {
             console.log(error);
         };
