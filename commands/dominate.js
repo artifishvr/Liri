@@ -41,16 +41,8 @@ module.exports = {
 
         const huggingmember = message.guild.members.cache.get(message.author.id);
 
-        let quote = ""
-        switch (member.displayName.toLowerCase()) {
-            case "drake":
-                quote = "\"said they a bottom, girl me too\""
-                break;
-            default:
-        }
-
         try {
-            message.channel.send(`**${huggingmember.displayName}** just dominated **${member.displayName}** :flushed:\n**${member.displayName}** has now been dommed **${newdoms}** times!\n${quote || ""}`);
+            message.channel.send(`**${huggingmember.displayName}** just dominated **${member.displayName}** :flushed:\n**${member.displayName}** has now been dommed **${newdoms}** times!`);
         } catch (error) {
             console.log(error);
         };

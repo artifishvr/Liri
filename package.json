@@ -1,10 +1,11 @@
 {
   "name": "uwu-haiiii",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "",
   "main": "index.js",
   "repository": "https://github.com/artificialbutter/uwu-haiiii",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "author": "artificialbutter",
