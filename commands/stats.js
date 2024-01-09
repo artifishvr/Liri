@@ -15,13 +15,11 @@ module.exports = {
 
         let member = message.guild.members.cache.get(memberid);
 
-        if (!member.displayName) {
-            message.reply("couldn't find that user!\nif you're using a user id, try mentioning them instead.");
-        };
+        if (!member.displayName) return message.reply("couldn't find that user!\nif you're using a user id, try mentioning them instead.");
 
 
         let user = await Member.findOne({ where: { userid: memberid } });
-        if (!user) console.log(`Couldn't find that user!`);
+        if (!user) return message.reply(`Couldn't find that user in the database!`);
 
         const Embed = new EmbedBuilder()
             .setColor(0xff7b00)

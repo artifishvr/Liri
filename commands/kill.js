@@ -9,18 +9,13 @@ module.exports = {
     async execute(message, args) {
         const { Member } = require('..');
 
-        if (!args) {
-            message.channel.send("you gotta kiss someone!!");
-            return;
-        }
+        if (!args) return message.reply("you gotta kill someone!!");
 
         let memberid = args[0].replace(/[\\<>@#&!]/g, "");
         if (args[0] == "myself") memberid = message.author.id;
         let member = message.guild.members.cache.get(memberid);
 
-        if (!member.displayName) {
-            message.reply("couldn't find that user!\nif you're using a user id, try mentioning them instead.");
-        };
+        if (!member.displayName) return message.reply("couldn't find that user!\nif you're using a user id, try mentioning them instead.");
 
         if (memberid == message.author.id) {
             message.react("<:sad:1084023335609978890>");
