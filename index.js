@@ -131,7 +131,7 @@ client.on("messageCreate", async (message) => {
                     setTimeout(() => {
                         message.delete();
                         reply.delete();
-                    }, 3000);
+                    }, 5000);
                 })
                 .catch(console.error);
         }
