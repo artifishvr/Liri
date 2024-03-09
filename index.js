@@ -125,7 +125,15 @@ client.on("messageCreate", async (message) => {
 
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000;
-            return message.reply(`chill out! wait ${timeLeft.toFixed(1)} more second(s) before trying to \`${command.name}\` again.`);
+
+            return message.reply(`chill out! wait ${timeLeft.toFixed(1)} more second(s) before trying to \`${command.name}\` again.`)
+                .then(reply => {
+                    setTimeout(() => {
+                        message.delete();
+                        reply.delete();
+                    }, 3000);
+                })
+                .catch(console.error);
         }
     }
 
