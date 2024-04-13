@@ -13,7 +13,7 @@ dependencies:
     version: 16.4.5
   sequelize:
     specifier: ^6.33.0
-    version: 6.37.2(sqlite3@5.1.7)
+    version: 6.37.3(sqlite3@5.1.7)
   sqlite3:
     specifier: ^5.1.6
     version: 5.1.7
@@ -159,8 +159,8 @@ packages:
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
     dev: false
 
-  /@types/node@20.11.30:
-    resolution: {integrity: sha512-dHM6ZxwlmuZaRmUPfv1p+KrdD1Dci04FbdEm/9wEMouFqxYoFl5aMkt0VMAUtYRQDyYvD41WJLukhq/ha3YuTw==}
+  /@types/node@20.12.7:
+    resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
     dependencies:
       undici-types: 5.26.5
     dev: false
@@ -172,7 +172,7 @@ packages:
   /@types/ws@8.5.9:
     resolution: {integrity: sha512-jbdrY0a8lxfdTp/+r7Z4CkycbOFN8WX+IOchLJr3juT/xzbJ8URyTVSJ/hvNdadTgM1mnedb47n+Y31GsFnQlg==}
     dependencies:
-      '@types/node': 20.11.30
+      '@types/node': 20.12.7
     dev: false
 
   /@vladfrangu/async_event_emitter@2.2.4:
@@ -1009,8 +1009,8 @@ packages:
     dev: false
     optional: true
 
-  /pg-connection-string@2.6.2:
-    resolution: {integrity: sha512-ch6OwaeaPYcova4kKZ15sbJ2hKb/VP48ZD2gE7i1J+L4MspCtBMAx8nMgz7bksc7IojCIIWuEhHibSMFH8m8oA==}
+  /pg-connection-string@2.6.4:
+    resolution: {integrity: sha512-v+Z7W/0EO707aNMaAEfiGnGL9sxxumwLl2fJvCQtMn9Fxsg+lPpPkdcyBSv/KFgpGdYkMfn+EI1Or2EHjpgLCA==}
     dev: false
 
   /picomatch@2.3.1:
@@ -1138,8 +1138,8 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: false
 
-  /sequelize@6.37.2(sqlite3@5.1.7):
-    resolution: {integrity: sha512-bnb7swGANONXCTrVyebpOOZssLwQrVkYX2tcC6qOIvH+P+OhsoMBi7c3GXI5bC+Z4b4tOl+kQy6yeqLCZ1YQAQ==}
+  /sequelize@6.37.3(sqlite3@5.1.7):
+    resolution: {integrity: sha512-V2FTqYpdZjPy3VQrZvjTPnOoLm0KudCRXfGWp48QwhyPPp2yW8z0p0sCYZd/em847Tl2dVxJJ1DR+hF+O77T7A==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       ibm_db: '*'
@@ -1179,7 +1179,7 @@ packages:
       lodash: 4.17.21
       moment: 2.30.1
       moment-timezone: 0.5.45
-      pg-connection-string: 2.6.2
+      pg-connection-string: 2.6.4
       retry-as-promised: 7.0.4
       semver: 7.6.0
       sequelize-pool: 7.1.0
@@ -1452,7 +1452,7 @@ packages:
   /wkx@0.5.0:
     resolution: {integrity: sha512-Xng/d4Ichh8uN4l0FToV/258EjMGU9MGcA0HV2d9B/ZpZB3lqQm7nkOdZdm5GhKtLLhAE7PiVQwN4eN+2YJJUg==}
     dependencies:
-      '@types/node': 20.11.30
+      '@types/node': 20.12.7
     dev: false
 
   /wrappy@1.0.2:
