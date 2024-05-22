@@ -32,6 +32,6 @@ export class KissCommand extends Command {
             }
         });
 
-        return interaction.editReply(`**${interaction.user.username}** MURDERED **${kissinguser.username}**\n**${kissinguser.username}** has now died **${newkisses}** time${newkisses != 1 ? "s" : ""}.`);
+        return interaction.editReply(`**${interaction.user.username}** MURDERED **${kissinguser.username}**\n**${kissinguser.username}** has died **${newkisses}** time${newkisses != 1 ? "s" : ""}`);
     }
 }
