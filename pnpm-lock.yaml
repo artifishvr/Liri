@@ -11,6 +11,9 @@ importers:
       '@sapphire/framework':
         specifier: ^5.2.1
         version: 5.2.1
+      '@sapphire/plugin-hmr':
+        specifier: ^3.0.1
+        version: 3.0.1
       discord.js:
         specifier: ^14.15.2
         version: 14.15.2
@@ -79,6 +82,10 @@ packages:
   '@sapphire/pieces@4.2.2':
     resolution: {integrity: sha512-DvAC+zTgm5o41D6iX+jBjMp+rRmoHPKNYnav6v6vQLTxBJb+iFMmup9ZREiuXdrh1ejrmVRZojnnI59xQgezwQ==}
     engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
+
+  '@sapphire/plugin-hmr@3.0.1':
+    resolution: {integrity: sha512-+7hs3tPu5m3B/7heXPXCfWj131OVFmaHDYETOME8CS/VYQ+szIJT+n5qAszyrrdma/Ky3UL4O6q73eh5luT/Rg==}
+    engines: {node: '>=v18', npm: '>=7'}
 
   '@sapphire/ratelimits@2.4.9':
     resolution: {integrity: sha512-eEE385IrFsD90gg696MWNqbeDjo1ZgtBvL66BezIwJEwDguhLP5AVsBsT4uCacX/92aeHl8i2nVvtusIBXZNSg==}
@@ -381,6 +388,10 @@ snapshots:
       '@discordjs/collection': 1.5.3
       '@sapphire/utilities': 3.16.2
       tslib: 2.6.2
+
+  '@sapphire/plugin-hmr@3.0.1':
+    dependencies:
+      chokidar: 3.6.0
 
   '@sapphire/ratelimits@2.4.9': {}
 
