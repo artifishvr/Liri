@@ -1,15 +1,14 @@
 import { SapphireClient, ApplicationCommandRegistries } from '@sapphire/framework';
-import { GatewayIntentBits } from 'discord.js';
-import dotenv from 'dotenv';
 import '@sapphire/plugin-hmr/register';
+import { GatewayIntentBits } from 'discord.js';
 import { Sequelize, DataTypes } from 'sequelize';
 import fs from 'fs';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 const client = new SapphireClient({
-    intents: [GatewayIntentBits.MessageContent, GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
-    loadMessageCommandListeners: true,
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
     hmr: {
         enabled: process.env.NODE_ENV === 'development'
     }
@@ -67,5 +66,5 @@ try {
 
 
 client.login(process.env.DISCORD_CLIENT_TOKEN);
-
+// funny line
 export { sequelize };
