@@ -11,4 +11,4 @@ RUN pnpm install --prod
 
 COPY . .
 
-CMD ["node", "index.js"]
+CMD ["node", "src/index.js"]
