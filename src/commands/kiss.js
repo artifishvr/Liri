@@ -1,7 +1,7 @@
 import { Command } from '@sapphire/framework';
 import { Member } from '../models/member.js';
 
-export class PingCommand extends Command {
+export class KissCommand extends Command {
     constructor(context, options) {
         super(context, { ...options });
     }
