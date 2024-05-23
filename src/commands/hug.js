@@ -8,7 +8,10 @@ export class KissCommand extends Command {
 
     registerApplicationCommands(registry) {
         registry.registerChatInputCommand((builder) =>
-            builder.setName('hug').setDescription('Give someone a hug :3').addUserOption((option) => option.setName('user').setDescription('The user to hug.').setRequired(true)));
+            builder.setName('hug').setDescription('Give someone a hug :3').addUserOption((option) => option.setName('user').setDescription('The user to hug.').setRequired(true))
+            , {
+                idHints: ['1242706354204966942']
+            });
     }
 
     async chatInputRun(interaction) {

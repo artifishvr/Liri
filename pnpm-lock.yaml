@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@sapphire/discord.js-utilities':
+        specifier: ^7.2.1
+        version: 7.2.1
       '@sapphire/framework':
         specifier: ^5.2.1
         version: 5.2.1

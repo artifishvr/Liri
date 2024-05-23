@@ -8,7 +8,9 @@ export class KissCommand extends Command {
 
     registerApplicationCommands(registry) {
         registry.registerChatInputCommand((builder) =>
-            builder.setName('kill').setDescription('KILL SOMEONE').addUserOption((option) => option.setName('user').setDescription('The user to KILL').setRequired(true)));
+            builder.setName('kill').setDescription('KILL SOMEONE').addUserOption((option) => option.setName('user').setDescription('The user to KILL').setRequired(true)), {
+            idHints: ['1242709448984887317']
+        });
     }
 
     async chatInputRun(interaction) {
@@ -25,7 +27,7 @@ export class KissCommand extends Command {
         let [user, created] = await Member.findOrCreate({ where: { userid: kissinguser.id } });
         if (created) console.log(`New member added to the database: ${user.userid}`);
 
-        const newkisses = user.hugged + 1;
+        const newkisses = user.deaths + 1;
         await Member.update({ deaths: newkisses }, {
             where: {
                 userid: kissinguser.id

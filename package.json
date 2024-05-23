@@ -1,6 +1,6 @@
 {
   "name": "uwu-haiii",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "src/index.js",
   "type": "module",
   "repository": "https://github.com/artificialbutter/uwu-haiii",
@@ -11,6 +11,7 @@
   "author": "artificialbutter",
   "license": "AGPL-3.0",
   "dependencies": {
+    "@sapphire/discord.js-utilities": "^7.2.1",
     "@sapphire/framework": "^5.2.1",
     "@sapphire/plugin-hmr": "^3.0.1",
     "discord.js": "^14.15.2",
