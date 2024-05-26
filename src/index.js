@@ -4,8 +4,6 @@ import { GatewayIntentBits, ActivityType, PresenceUpdateStatus } from 'discord.j
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 import { migrate } from "drizzle-orm/better-sqlite3/migrator";
 import Database from 'better-sqlite3';
-import { Sequelize, DataTypes } from 'sequelize';
-import fs from 'fs';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -16,6 +14,11 @@ const client = new SapphireClient({
         enabled: process.env.NODE_ENV === 'development'
     }
 });
+
+const sqlite = new Database('db/uwu.db');
+const db = drizzle(sqlite);
+
+
 if (process.env.DISCORD_GUILD_ID) ApplicationCommandRegistries.setDefaultGuildIds([process.env.DISCORD_GUILD_ID]);
 
 client.on('ready', () => {
@@ -27,50 +30,7 @@ client.on('ready', () => {
 });
 
 
-
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: 'db/uwu.db',
-    logging: false,
-});
-
-export const Member = sequelize.define('Member', {
-    userid: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    kissys: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0,
-        allowNull: false
-    },
-    hugged: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0,
-        allowNull: false
-    },
-    dominated: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0,
-        allowNull: false
-    },
-    deaths: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0,
-        allowNull: false
-    }
-}, {
-});
-
-if (!fs.existsSync('db')) {
-    fs.mkdirSync('db');
-}
-
-const sqlite = new Database('db/uwu.db');
-const db = drizzle(sqlite);
-
 migrate(db, { migrationsFolder: "drizzle" });
 
 client.login(process.env.DISCORD_CLIENT_TOKEN);
-
 export { db };
