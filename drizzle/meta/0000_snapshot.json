@@ -1,0 +1,83 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "6",
+  "dialect": "sqlite",
+  "tables": {
+    "Members": {
+      "name": "Members",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "userid": {
+          "autoincrement": false,
+          "name": "userid",
+          "type": "text(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kissys": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "kissys",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hugged": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "hugged",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dominated": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "dominated",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deaths": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "deaths",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "autoincrement": false,
+          "name": "createdAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updatedAt": {
+          "autoincrement": false,
+          "name": "updatedAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

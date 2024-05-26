@@ -1,6 +1,8 @@
 import { Command } from '@sapphire/framework';
-import { Member } from '../index.js';
 import { EmbedBuilder } from 'discord.js';
+import { db } from '../index.js';
+import { Members } from '../schema.js';
+import { eq } from 'drizzle-orm';
 
 export class StatsCommand extends Command {
     constructor(context, options) {
@@ -17,16 +19,17 @@ export class StatsCommand extends Command {
     async chatInputRun(interaction) {
         await interaction.deferReply();
 
-        let user = await Member.findOne({ where: { userid: interaction.options.getUser('user').id } });
-        if (!user) return interaction.editReply(`Couldn't find that user in the database!`);
+        const result = await db.select().from(Members).where(eq(Members.userid, interaction.options.getUser('user').id));
+
+        if (result.length == 0) return interaction.editReply(`Couldn't find that user in the database!`);
 
         const Embed = new EmbedBuilder()
             .setColor(0xff7b00)
             .setTitle('Stats for ' + interaction.options.getUser('user').username)
             .addFields(
-                { name: 'Kisses', value: `${user.kissys}`, inline: true },
-                { name: 'Hugs', value: `${user.hugged}`, inline: true },
-                { name: 'Deaths', value: `${user.deaths}`, inline: true },
+                { name: 'Kisses', value: `${result[0].kissys}`, inline: true },
+                { name: 'Hugs', value: `${result[0].hugged}`, inline: true },
+                { name: 'Deaths', value: `${result[0].deaths}`, inline: true },
             )
             .setTimestamp()
             .setFooter({ text: 'uwu haiiii' });

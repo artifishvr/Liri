@@ -1,5 +1,7 @@
 import { Command } from '@sapphire/framework';
-import { Member } from '../index.js';
+import { db } from '../index.js';
+import { Members } from '../schema.js';
+import { eq } from 'drizzle-orm';
 
 export class KissCommand extends Command {
     constructor(context, options) {
@@ -24,15 +26,21 @@ export class KissCommand extends Command {
             return;
         }
 
-        let [user, created] = await Member.findOrCreate({ where: { userid: kissinguser.id } });
-        if (created) console.log(`New member added to the database: ${user.userid}`);
+        let result = await db.select().from(Members).where(eq(Members.userid, kissinguser.id));
+        if (result.length == 0) {
+            result = await db.insert(Members).values({
+                userid: kissinguser.id,
+                createdAt: 1,
+                updatedAt: 1,
+            }).returning();
+        }
+        result = result[0];
 
-        const newkisses = user.deaths + 1;
-        await Member.update({ deaths: newkisses }, {
-            where: {
-                userid: kissinguser.id
-            }
-        });
+        const newkisses = result.kissys + 1;
+
+        await db.update(Members)
+            .set({ kissys: newkisses })
+            .where(eq(Members.userid, kissinguser.id));
 
         return interaction.editReply(`**${interaction.user.username}** MURDERED **${kissinguser.username}**\n**${kissinguser.username}** has died **${newkisses}** time${newkisses != 1 ? "s" : ""}`);
     }

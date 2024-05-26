@@ -1,6 +1,9 @@
 import { SapphireClient, ApplicationCommandRegistries } from '@sapphire/framework';
 import '@sapphire/plugin-hmr/register';
 import { GatewayIntentBits, ActivityType, PresenceUpdateStatus } from 'discord.js';
+import { drizzle } from 'drizzle-orm/better-sqlite3';
+import { migrate } from "drizzle-orm/better-sqlite3/migrator";
+import Database from 'better-sqlite3';
 import { Sequelize, DataTypes } from 'sequelize';
 import fs from 'fs';
 import dotenv from 'dotenv';
@@ -22,6 +25,8 @@ client.on('ready', () => {
         client.user.setPresence({ activities: [{ name: 'catgirl gex', type: ActivityType.Playing }], status: PresenceUpdateStatus.Idle });
     }, 1000 * 60 * 60);
 });
+
+
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
@@ -57,21 +62,15 @@ export const Member = sequelize.define('Member', {
 }, {
 });
 
-try {
-    if (!fs.existsSync('db')) {
-        fs.mkdirSync('db');
-    }
+if (!fs.existsSync('db')) {
+    fs.mkdirSync('db');
+}
 
-    await sequelize.authenticate();
-    await sequelize.sync();
+const sqlite = new Database('db/uwu.db');
+const db = drizzle(sqlite);
 
-    console.log('Connected to database successfully.');
-} catch (error) {
-    console.error('Unable to connect to the database:', error);
-};
-
-
+migrate(db, { migrationsFolder: "drizzle" });
 
 client.login(process.env.DISCORD_CLIENT_TOKEN);
-// funny line
-export { sequelize };
+
+export { db };

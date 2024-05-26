@@ -1,12 +1,14 @@
 {
   "name": "uwu-haiii",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": "src/index.js",
   "type": "module",
   "repository": "https://github.com/artificialbutter/uwu-haiii",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate"
   },
   "author": "artificialbutter",
   "license": "AGPL-3.0",
@@ -14,12 +16,13 @@
     "@sapphire/discord.js-utilities": "^7.2.1",
     "@sapphire/framework": "^5.2.1",
     "@sapphire/plugin-hmr": "^3.0.1",
+    "better-sqlite3": "^10.0.0",
     "discord.js": "^14.15.2",
     "dotenv": "^16.4.5",
-    "sequelize": "^6.37.3",
-    "sqlite3": "^5.1.7"
+    "drizzle-orm": "^0.30.10"
   },
   "devDependencies": {
+    "drizzle-kit": "^0.21.4",
     "nodemon": "^3.0.1"
   }
 }
