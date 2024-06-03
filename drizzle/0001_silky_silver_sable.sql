@@ -1,0 +1,1 @@
+ALTER TABLE `Members` ADD `pats` integer DEFAULT 0 NOT NULL;

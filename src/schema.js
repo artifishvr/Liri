@@ -7,6 +7,7 @@ export const Members = sqliteTable("Members", {
     hugged: integer("hugged").default(0).notNull(),
     dominated: integer("dominated").default(0).notNull(),
     deaths: integer("deaths").default(0).notNull(),
+    pats: integer("pats").default(0).notNull(),
     createdAt: numeric("createdAt").notNull(),
     updatedAt: numeric("updatedAt").notNull(),
 });

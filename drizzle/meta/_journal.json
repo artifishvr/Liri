@@ -8,6 +8,13 @@
       "when": 1716680164652,
       "tag": "0000_clear_madame_web",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1717390998370,
+      "tag": "0001_silky_silver_sable",
+      "breakpoints": true
     }
   ]
 }
