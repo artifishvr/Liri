@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@sapphire/discord.js-utilities':
         specifier: ^7.2.1
-        version: 7.2.1
+        version: 7.3.0
       '@sapphire/framework':
         specifier: ^5.2.1
         version: 5.2.1
@@ -28,14 +28,14 @@ importers:
         version: 16.4.5
       drizzle-orm:
         specifier: ^0.31.0
-        version: 0.31.0(better-sqlite3@11.0.0)(sqlite3@5.1.7)
+        version: 0.31.2(better-sqlite3@11.0.0)(sqlite3@5.1.7)
     devDependencies:
       drizzle-kit:
         specifier: ^0.22.0
-        version: 0.22.1
+        version: 0.22.6
       nodemon:
         specifier: ^3.0.1
-        version: 3.1.2
+        version: 3.1.3
 
 packages:
 
@@ -366,8 +366,12 @@ packages:
     resolution: {integrity: sha512-tGR1gp7djEEFuIFcj4fa0kaaJ/+sfm9UHHav6hSCvwytP33tUAIiH7hJhgbM/B7/WWCiwDIZXGBdKg9Wwc0TdA==}
     engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
 
-  '@sapphire/discord.js-utilities@7.2.1':
-    resolution: {integrity: sha512-Yq9mml/QhH/1GWylo4XyjrIZRo1KVkX5r4e1Vo14cR6Ce2eI9TJLqyFKl/0ZFQiLPr0YDLxfrqxd2WSXA6uUyw==}
+  '@sapphire/discord-utilities@3.3.0':
+    resolution: {integrity: sha512-xHAe22GSM4NjhNiyZ/5gwEF+uFDPHSrZABWypPGDUIK+CNDDPyPf56ooUb8cm02dVcU81wzscnRXK2cLY6RPcg==}
+    engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
+
+  '@sapphire/discord.js-utilities@7.3.0':
+    resolution: {integrity: sha512-SOacsoV8eqPz0YqyXwNNZChNhz09QEhTrrGm+rnG+xZbglODtnoYmEgmLIemr2t6eyxPRerwhakacfyNYGapVg==}
     engines: {node: '>=16.6.0', npm: '>=7.0.0'}
 
   '@sapphire/duration@1.1.2':
@@ -520,15 +524,6 @@ packages:
   console-control-strings@1.1.0:
     resolution: {integrity: sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==}
 
-  debug@4.3.4:
-    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
-    engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-
   debug@4.3.5:
     resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
     engines: {node: '>=6.0'}
@@ -556,8 +551,8 @@ packages:
   discord-api-types@0.37.83:
     resolution: {integrity: sha512-urGGYeWtWNYMKnYlZnOnDHm8fVRffQs3U0SpE8RHeiuLKb/u92APS8HoQnPTFbnXmY1vVnXjXO4dOxcAn3J+DA==}
 
-  discord-api-types@0.37.86:
-    resolution: {integrity: sha512-ofpVLHshKdKl+XuZBbwOBSlgQFPJPzMuUiBpala3+ImPHBVo7ojZpzJUu2NJV/f0t1kqncechDugQpO5AjZnxg==}
+  discord-api-types@0.37.87:
+    resolution: {integrity: sha512-9KfluFS1J22RuezzouGs2t5X/Yu3jNpmRJrG+dvu1R9R+wfxlhq1RXr/OjjVL6d4rr7Ez92yNWiImf/qX3GV1g==}
 
   discord.js@14.15.3:
     resolution: {integrity: sha512-/UJDQO10VuU6wQPglA4kz2bw2ngeeSbogiIPx/TsnctfzV/tNf+q+i1HlgtX1OGpeOBpJH9erZQNO5oRM2uAtQ==}
@@ -567,12 +562,12 @@ packages:
     resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
 
-  drizzle-kit@0.22.1:
-    resolution: {integrity: sha512-2at6LeHSGdhkwGtZbghtJaMUxWmeuLfX9X1O7um/SxfVbtK580h2jd59Gd5Z7TnofSS2tgmFiyEtM4fBat3KeA==}
+  drizzle-kit@0.22.6:
+    resolution: {integrity: sha512-TE4mBMeVJvySjYxwKeUOMrzytFSKnpMyp6kBnm+aascu9P+hCMrGvnJhOAO94C3wmt144CoHZQWQCOoP/EFl8A==}
     hasBin: true
 
-  drizzle-orm@0.31.0:
-    resolution: {integrity: sha512-Uf5a3sGOqoyC+ZpQ4NCPR373q0pHOHezIJwdumMix+3rzLdtKgRhdaOabYeqNHBB48gF3Q9rrndkNc4ddE3AWA==}
+  drizzle-orm@0.31.2:
+    resolution: {integrity: sha512-QnenevbnnAzmbNzQwbhklvIYrDE8YER8K7kSrAWQSV1YvFCdSQPzj+jzqRdTSsV2cDqSpQ0NXGyL1G9I43LDLg==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -582,6 +577,7 @@ packages:
       '@op-engineering/op-sqlite': '>=2'
       '@opentelemetry/api': ^1.4.1
       '@planetscale/database': '>=1'
+      '@tidbcloud/serverless': '*'
       '@types/better-sqlite3': '*'
       '@types/pg': '*'
       '@types/react': '>=18'
@@ -615,6 +611,8 @@ packages:
       '@opentelemetry/api':
         optional: true
       '@planetscale/database':
+        optional: true
+      '@tidbcloud/serverless':
         optional: true
       '@types/better-sqlite3':
         optional: true
@@ -911,8 +909,8 @@ packages:
     engines: {node: '>= 10.12.0'}
     hasBin: true
 
-  nodemon@3.1.2:
-    resolution: {integrity: sha512-/Ib/kloefDy+N0iRTxIUzyGcdW9lzlnca2Jsa5w73bs3npXjg+WInmiX6VY13mIb6SykkthYX/U5t0ukryGqBw==}
+  nodemon@3.1.3:
+    resolution: {integrity: sha512-m4Vqs+APdKzDFpuaL9F9EVOF85+h070FnkHVEoU4+rmT6Vw0bmNl7s61VEkY/cJkL7RCv1p4urnUDUMrS5rk2w==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -1092,6 +1090,9 @@ packages:
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
+  tslib@2.6.3:
+    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+
   tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
 
@@ -1150,7 +1151,7 @@ snapshots:
       discord-api-types: 0.37.83
       fast-deep-equal: 3.1.3
       ts-mixer: 6.0.4
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@discordjs/builders@1.8.2':
     dependencies:
@@ -1363,14 +1364,18 @@ snapshots:
 
   '@sapphire/discord-utilities@3.2.3':
     dependencies:
-      discord-api-types: 0.37.86
+      discord-api-types: 0.37.87
 
-  '@sapphire/discord.js-utilities@7.2.1':
+  '@sapphire/discord-utilities@3.3.0':
     dependencies:
-      '@sapphire/discord-utilities': 3.2.3
+      discord-api-types: 0.37.87
+
+  '@sapphire/discord.js-utilities@7.3.0':
+    dependencies:
+      '@sapphire/discord-utilities': 3.3.0
       '@sapphire/duration': 1.1.2
       '@sapphire/utilities': 3.16.2
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@sapphire/duration@1.1.2': {}
 
@@ -1378,7 +1383,7 @@ snapshots:
     dependencies:
       '@discordjs/builders': 1.8.1
       '@sapphire/discord-utilities': 3.2.3
-      '@sapphire/discord.js-utilities': 7.2.1
+      '@sapphire/discord.js-utilities': 7.3.0
       '@sapphire/lexure': 1.1.7
       '@sapphire/pieces': 4.2.2
       '@sapphire/ratelimits': 2.4.9
@@ -1394,7 +1399,7 @@ snapshots:
     dependencies:
       '@discordjs/collection': 1.5.3
       '@sapphire/utilities': 3.16.2
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@sapphire/plugin-hmr@3.0.1':
     dependencies:
@@ -1413,7 +1418,7 @@ snapshots:
 
   '@sapphire/stopwatch@1.5.2':
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@sapphire/utilities@3.16.2': {}
 
@@ -1435,7 +1440,7 @@ snapshots:
 
   agent-base@6.0.2:
     dependencies:
-      debug: 4.3.5
+      debug: 4.3.5(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -1557,16 +1562,11 @@ snapshots:
   console-control-strings@1.1.0:
     optional: true
 
-  debug@4.3.4(supports-color@5.5.0):
+  debug@4.3.5(supports-color@5.5.0):
     dependencies:
       ms: 2.1.2
     optionalDependencies:
       supports-color: 5.5.0
-
-  debug@4.3.5:
-    dependencies:
-      ms: 2.1.2
-    optional: true
 
   decompress-response@6.0.0:
     dependencies:
@@ -1581,7 +1581,7 @@ snapshots:
 
   discord-api-types@0.37.83: {}
 
-  discord-api-types@0.37.86: {}
+  discord-api-types@0.37.87: {}
 
   discord.js@14.15.3:
     dependencies:
@@ -1603,7 +1603,7 @@ snapshots:
 
   dotenv@16.4.5: {}
 
-  drizzle-kit@0.22.1:
+  drizzle-kit@0.22.6:
     dependencies:
       '@esbuild-kit/esm-loader': 2.6.5
       esbuild: 0.19.12
@@ -1611,7 +1611,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.31.0(better-sqlite3@11.0.0)(sqlite3@5.1.7):
+  drizzle-orm@0.31.2(better-sqlite3@11.0.0)(sqlite3@5.1.7):
     optionalDependencies:
       better-sqlite3: 11.0.0
       sqlite3: 5.1.7
@@ -1636,7 +1636,7 @@ snapshots:
 
   esbuild-register@3.5.0(esbuild@0.19.12):
     dependencies:
-      debug: 4.3.4(supports-color@5.5.0)
+      debug: 4.3.5(supports-color@5.5.0)
       esbuild: 0.19.12
     transitivePeerDependencies:
       - supports-color
@@ -1762,7 +1762,7 @@ snapshots:
     dependencies:
       '@tootallnate/once': 1.1.2
       agent-base: 6.0.2
-      debug: 4.3.5
+      debug: 4.3.5(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -1770,7 +1770,7 @@ snapshots:
   https-proxy-agent@5.0.1:
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.5
+      debug: 4.3.5(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -1962,10 +1962,10 @@ snapshots:
       - supports-color
     optional: true
 
-  nodemon@3.1.2:
+  nodemon@3.1.3:
     dependencies:
       chokidar: 3.6.0
-      debug: 4.3.4(supports-color@5.5.0)
+      debug: 4.3.5(supports-color@5.5.0)
       ignore-by-default: 1.0.1
       minimatch: 3.1.2
       pstree.remy: 1.1.8
@@ -2093,7 +2093,7 @@ snapshots:
   socks-proxy-agent@6.2.1:
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.5
+      debug: 4.3.5(supports-color@5.5.0)
       socks: 2.8.3
     transitivePeerDependencies:
       - supports-color
@@ -2189,6 +2189,8 @@ snapshots:
   ts-mixer@6.0.4: {}
 
   tslib@2.6.2: {}
+
+  tslib@2.6.3: {}
 
   tunnel-agent@0.6.0:
     dependencies:
