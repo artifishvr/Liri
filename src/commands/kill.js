@@ -36,10 +36,10 @@ export class KissCommand extends Command {
         }
         result = result[0];
 
-        const newkisses = result.kissys + 1;
+        const newkisses = result.deaths + 1;
 
         await db.update(Members)
-            .set({ kissys: newkisses })
+            .set({ deaths: newkisses })
             .where(eq(Members.userid, kissinguser.id));
 
         return interaction.editReply(`**${interaction.user.username}** MURDERED **${kissinguser.username}**\n**${kissinguser.username}** has died **${newkisses}** time${newkisses != 1 ? "s" : ""}`);
