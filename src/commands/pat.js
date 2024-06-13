@@ -12,7 +12,7 @@ export class KissCommand extends Command {
         registry.registerChatInputCommand((builder) =>
             builder.setName('headpat').setDescription('Give someone a headpat').addUserOption((option) => option.setName('user').setDescription('The user to pat.').setRequired(true))
             , {
-                idHints: ['1247053405566795827']
+                idHints: ['1250906614308012032']
             });
     }
 

@@ -12,7 +12,7 @@ export class StatsCommand extends Command {
     registerApplicationCommands(registry) {
         registry.registerChatInputCommand((builder) =>
             builder.setName('stats').setDescription('get the stats of a user!').addUserOption((option) => option.setName('user').setDescription('The user to get stats for.').setRequired(true)), {
-            idHints: ['1242707883809050635']
+            idHints: ['1250906528588894258']
         });
     }
 

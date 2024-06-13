@@ -11,7 +11,7 @@ export class KissCommand extends Command {
     registerApplicationCommands(registry) {
         registry.registerChatInputCommand((builder) =>
             builder.setName('kiss').setDescription('Kiss someone!').addUserOption((option) => option.setName('user').setDescription('The user to kiss.').setRequired(true)), {
-            idHints: ['1242678695882264641']
+            idHints: ['1250906533227921541']
         });
     }
 

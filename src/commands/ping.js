@@ -9,7 +9,7 @@ export class PingCommand extends Command {
     registerApplicationCommands(registry) {
         registry.registerChatInputCommand((builder) =>
             builder.setName('ping').setDescription('every bot needs a ping command!'), {
-            idHints: ['1242675066727043102']
+            idHints: ['1250906530904018984']
         });
     }
 

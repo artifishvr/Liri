@@ -11,7 +11,7 @@ export class KissCommand extends Command {
     registerApplicationCommands(registry) {
         registry.registerChatInputCommand((builder) =>
             builder.setName('kill').setDescription('KILL SOMEONE').addUserOption((option) => option.setName('user').setDescription('The user to KILL').setRequired(true)), {
-            idHints: ['1242709448984887317']
+            idHints: ['1250906529503383644']
         });
     }
 
