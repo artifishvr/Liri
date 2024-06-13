@@ -12,7 +12,6 @@ export class KissCommand extends Command {
         registry.registerChatInputCommand((builder) =>
             builder.setName('dominate').setDescription('Dominate someone').addUserOption((option) => option.setName('user').setDescription('The user to dom.').setRequired(true))
             , {
-                idHints: ['1242706354204966942'],
                 guildIds: ['867259665682137098']
             });
     }

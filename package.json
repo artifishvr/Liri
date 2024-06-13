@@ -3,7 +3,7 @@
   "version": "2.3.2",
   "main": "src/index.js",
   "type": "module",
-  "repository": "https://github.com/artificialbutter/uwu-haiii",
+  "repository": "https://github.com/artifishvr/uwu-haiii",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
