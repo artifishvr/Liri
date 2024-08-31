@@ -24,7 +24,7 @@ export class StatsCommand extends Command {
         if (result.length == 0) return interaction.editReply(`Couldn't find that user in the database!`);
 
         const Embed = new EmbedBuilder()
-            .setColor(0xff7b00)
+            .setColor(0xff7175)
             .setTitle('Stats for ' + interaction.options.getUser('user').username)
             .addFields(
                 { name: 'Kisses', value: `${result[0].kissys}`, inline: true },
@@ -32,7 +32,7 @@ export class StatsCommand extends Command {
                 { name: 'Deaths', value: `${result[0].deaths}`, inline: true },
             )
             .setTimestamp()
-            .setFooter({ text: 'uwu haiiii' });
+            .setFooter({ text: 'Liri', iconURL: 'https://cdn.discordapp.com/avatars/853136518259802112/48e8f1d5560a848491cbb331d4617a72.png?size=4096&format=webp&quality=lossless&width=0&height=230' });
 
         return interaction.editReply({ embeds: [Embed] });
     }

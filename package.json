@@ -1,9 +1,9 @@
 {
-  "name": "uwu-haiii",
+  "name": "liri",
   "version": "2.3.2",
   "main": "src/index.js",
   "type": "module",
-  "repository": "https://github.com/artifishvr/uwu-haiii",
+  "repository": "https://github.com/artifishvr/Liri",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
