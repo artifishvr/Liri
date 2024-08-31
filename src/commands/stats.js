@@ -30,6 +30,7 @@ export class StatsCommand extends Command {
                 { name: 'Kisses', value: `${result[0].kissys}`, inline: true },
                 { name: 'Hugs', value: `${result[0].hugged}`, inline: true },
                 { name: 'Deaths', value: `${result[0].deaths}`, inline: true },
+                { name: 'Headpats', value: `${result[0].pats}`, inline: true },
             )
             .setTimestamp()
             .setFooter({ text: 'Liri', iconURL: 'https://cdn.discordapp.com/avatars/853136518259802112/48e8f1d5560a848491cbb331d4617a72.png?size=4096&format=webp&quality=lossless&width=0&height=230' });
