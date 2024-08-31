@@ -23,9 +23,9 @@ if (process.env.DISCORD_GUILD_ID) ApplicationCommandRegistries.setDefaultGuildId
 
 client.on('ready', () => {
     console.log('Logged in as ' + client.user.tag);
-    client.user.setPresence({ activities: [{ name: 'catgirl gex', type: ActivityType.Playing }], status: PresenceUpdateStatus.Idle });
+    client.user.setPresence({ activities: [{ name: 'catgirl gex', type: ActivityType.Custom }], status: PresenceUpdateStatus.Idle });
     setInterval(() => {
-        client.user.setPresence({ activities: [{ name: 'catgirl gex', type: ActivityType.Playing }], status: PresenceUpdateStatus.Idle });
+        client.user.setPresence({ activities: [{ name: 'catgirl gex', type: ActivityType.Custom }], status: PresenceUpdateStatus.Idle });
     }, 1000 * 60 * 60);
 });
 
