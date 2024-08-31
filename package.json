@@ -1,6 +1,6 @@
 {
   "name": "liri",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "main": "src/index.js",
   "type": "module",
   "repository": "https://github.com/artifishvr/Liri",

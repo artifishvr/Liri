@@ -40,9 +40,9 @@ export class KissCommand extends Command {
         const newkisses = result.pats + 1;
 
         await db.update(Members)
-            .set({ hugged: newkisses })
+            .set({ pats: newkisses })
             .where(eq(Members.userid, kissinguser.id));
 
-        return interaction.editReply(`**${interaction.user.username}** gave **${kissinguser.username}** a headpat :3\n**${kissinguser.username}** has now been patted **${newkisses}** time${newkisses != 1 ? "s" : ""}.`);
+        return interaction.editReply(`**${interaction.user.username}** gave **${kissinguser.username}** a headpat c:\n**${kissinguser.username}** has now been patted **${newkisses}** time${newkisses != 1 ? "s" : ""}.`);
     }
 }
