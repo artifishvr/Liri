@@ -1,5 +1,8 @@
 <div id="top"></div>
 
+> [!WARNING]  
+> This project is purely in a "maintenance mode" state and is not actively developed. It may receive critical bug fixes, but no new features will be added in the near future.
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">

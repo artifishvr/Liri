@@ -1,14 +1,10 @@
-FROM node:lts-alpine
-ENV NODE_ENV=production
-
-RUN npm install -g pnpm
+FROM oven/bun:1 
 
 WORKDIR /app
 
-COPY ["package.json", "pnpm-lock.yaml", "./"]
+COPY package.json bun.lock ./
 
-RUN pnpm install --prod
-
+RUN bun install --production --frozen-lockfile
 COPY . .
 
-CMD ["node", "src/index.js"]
+CMD ["bun", "start"]

@@ -1,9 +1,8 @@
 import { SapphireClient, ApplicationCommandRegistries } from '@sapphire/framework';
 import '@sapphire/plugin-hmr/register';
 import { GatewayIntentBits, ActivityType, PresenceUpdateStatus } from 'discord.js';
-import { drizzle } from 'drizzle-orm/better-sqlite3';
-import { migrate } from "drizzle-orm/better-sqlite3/migrator";
-import Database from 'better-sqlite3';
+import { drizzle } from 'drizzle-orm/bun-sqlite';
+import { migrate } from "drizzle-orm/bun-sqlite/migrator";
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -15,8 +14,8 @@ const client = new SapphireClient({
     }
 });
 
-const sqlite = new Database('db/uwu.db');
-const db = drizzle(sqlite);
+
+const db = drizzle('db/uwu.db');
 
 
 if (process.env.DISCORD_GUILD_ID) ApplicationCommandRegistries.setDefaultGuildIds([process.env.DISCORD_GUILD_ID]);
